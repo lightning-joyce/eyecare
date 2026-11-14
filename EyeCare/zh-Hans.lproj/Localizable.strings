@@ -1,0 +1,17 @@
+"app.name" = "EyeCare 护眼";
+"menu.nextShort" = "距下次远眺休息 %@";
+"menu.nextLong" = "距下次离屏休息 %@";
+"menu.takeShortBreak" = "立即远眺休息";
+"menu.takeLongBreak" = "立即离屏休息";
+"menu.settings" = "设置…";
+"menu.quit" = "退出 EyeCare";
+"settings.breaks" = "休息";
+"settings.shortRule" = "20-20-20 远眺";
+"settings.shortDescription" = "每 20 分钟休息 20 秒";
+"settings.longInterval" = "离屏休息间隔";
+"settings.longDuration" = "离屏休息时长";
+"break.short.title" = "抬头看看远处";
+"break.short.instruction" = "看约 6 米或更远的物体，轻轻眨几次眼。";
+"break.long.title" = "离开屏幕休息一下";
+"break.long.instruction" = "离开桌前走一走，让眼睛休息片刻。";
+"break.timeRemaining" = "剩余时间";

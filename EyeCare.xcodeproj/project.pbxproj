@@ -7,12 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21A500C6F0658A8F8D280198 /* SettingsWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291BCCEA1FA1971BF68A0A86 /* SettingsWindow.swift */; };
+		22EC9C103AAEA1C1E7BFEC7F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 711E449A178D0AB00936E487 /* Localizable.strings */; };
 		32151EFEA9DDD2CCEEA7A5D8 /* EyeCare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E3CB2FFA2C27AF1D5C200 /* EyeCare.swift */; };
+		3B0BF3FAEF7E854C8DE53039 /* BreakSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918B08013345B965ECC12B55 /* BreakSchedule.swift */; };
+		42B030B10998D0535B54C315 /* TimingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F51953C695259CDAAB8BF37 /* TimingController.swift */; };
+		55835CF24850E8B369F73405 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 746E894A998E4D3D0ACD43D2 /* InfoPlist.strings */; };
+		6AFE6FCC2DB42D1D68551679 /* BreakPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03392EDA4338393FEDF3A906 /* BreakPreferences.swift */; };
+		776AD0AC395FED38BC291672 /* BreakOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0DCCBB1AF51FD2D0ADB6DB /* BreakOverlay.swift */; };
+		95F16A176F0592104817BC5D /* BreakSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918B08013345B965ECC12B55 /* BreakSchedule.swift */; };
+		C30124730106856AEE408098 /* BreakScheduleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690C0892AFC087190E8C0FC1 /* BreakScheduleTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		03392EDA4338393FEDF3A906 /* BreakPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakPreferences.swift; sourceTree = "<group>"; };
 		1DF5A1238BE112CAF9AD881D /* EyeCare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EyeCare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		274E3CB2FFA2C27AF1D5C200 /* EyeCare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeCare.swift; sourceTree = "<group>"; };
+		291BCCEA1FA1971BF68A0A86 /* SettingsWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindow.swift; sourceTree = "<group>"; };
+		2E0DCCBB1AF51FD2D0ADB6DB /* BreakOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakOverlay.swift; sourceTree = "<group>"; };
+		3AAEEBAF03A8C5855AAAC4C0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		668971A254514001BE0F6FC1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		690C0892AFC087190E8C0FC1 /* BreakScheduleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakScheduleTests.swift; sourceTree = "<group>"; };
+		918B08013345B965ECC12B55 /* BreakSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakSchedule.swift; sourceTree = "<group>"; };
+		981EEB7942B9979074FB1593 /* EyeCareTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EyeCareTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F51953C695259CDAAB8BF37 /* TimingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimingController.swift; sourceTree = "<group>"; };
+		DED9EDDEA7B803F701F48AD2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E80431EDEDEE65DD2FBF1631 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -20,6 +40,7 @@
 			isa = PBXGroup;
 			children = (
 				1DF5A1238BE112CAF9AD881D /* EyeCare.app */,
+				981EEB7942B9979074FB1593 /* EyeCareTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -27,7 +48,14 @@
 		8C63D0282309A363C6DB9402 /* EyeCare */ = {
 			isa = PBXGroup;
 			children = (
+				2E0DCCBB1AF51FD2D0ADB6DB /* BreakOverlay.swift */,
+				03392EDA4338393FEDF3A906 /* BreakPreferences.swift */,
+				918B08013345B965ECC12B55 /* BreakSchedule.swift */,
 				274E3CB2FFA2C27AF1D5C200 /* EyeCare.swift */,
+				291BCCEA1FA1971BF68A0A86 /* SettingsWindow.swift */,
+				9F51953C695259CDAAB8BF37 /* TimingController.swift */,
+				746E894A998E4D3D0ACD43D2 /* InfoPlist.strings */,
+				711E449A178D0AB00936E487 /* Localizable.strings */,
 			);
 			path = EyeCare;
 			sourceTree = "<group>";
@@ -36,8 +64,17 @@
 			isa = PBXGroup;
 			children = (
 				8C63D0282309A363C6DB9402 /* EyeCare */,
+				D4B703C57CEF4588FCE210EF /* EyeCareTests */,
 				5FB1CB765D7773293D1C8FBE /* Products */,
 			);
+			sourceTree = "<group>";
+		};
+		D4B703C57CEF4588FCE210EF /* EyeCareTests */ = {
+			isa = PBXGroup;
+			children = (
+				690C0892AFC087190E8C0FC1 /* BreakScheduleTests.swift */,
+			);
+			path = EyeCareTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -48,6 +85,7 @@
 			buildConfigurationList = 80BA8088C8AE213988CED0D1 /* Build configuration list for PBXNativeTarget "EyeCare" */;
 			buildPhases = (
 				7DBCA495D89B1BC73E96A040 /* Sources */,
+				1D7B4793CF1BFC02C72413E7 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -59,6 +97,23 @@
 			productName = EyeCare;
 			productReference = 1DF5A1238BE112CAF9AD881D /* EyeCare.app */;
 			productType = "com.apple.product-type.application";
+		};
+		8D5FD0DB094505D27EAB1244 /* EyeCareTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A6D55FDFE725EE64E0BE40C1 /* Build configuration list for PBXNativeTarget "EyeCareTests" */;
+			buildPhases = (
+				5B46D99C5FA2B05EAC1C30CF /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EyeCareTests;
+			packageProductDependencies = (
+			);
+			productName = EyeCareTests;
+			productReference = 981EEB7942B9979074FB1593 /* EyeCareTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -80,6 +135,7 @@
 			knownRegions = (
 				Base,
 				en,
+				"zh-Hans",
 			);
 			mainGroup = AD89C8B5C7F9328BFB53CF3C;
 			minimizedProjectReferenceProxies = 1;
@@ -89,20 +145,68 @@
 			projectRoot = "";
 			targets = (
 				405EB48F0CFB77340F697B5B /* EyeCare */,
+				8D5FD0DB094505D27EAB1244 /* EyeCareTests */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		1D7B4793CF1BFC02C72413E7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55835CF24850E8B369F73405 /* InfoPlist.strings in Resources */,
+				22EC9C103AAEA1C1E7BFEC7F /* Localizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		5B46D99C5FA2B05EAC1C30CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B0BF3FAEF7E854C8DE53039 /* BreakSchedule.swift in Sources */,
+				C30124730106856AEE408098 /* BreakScheduleTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7DBCA495D89B1BC73E96A040 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				776AD0AC395FED38BC291672 /* BreakOverlay.swift in Sources */,
+				6AFE6FCC2DB42D1D68551679 /* BreakPreferences.swift in Sources */,
+				95F16A176F0592104817BC5D /* BreakSchedule.swift in Sources */,
 				32151EFEA9DDD2CCEEA7A5D8 /* EyeCare.swift in Sources */,
+				21A500C6F0658A8F8D280198 /* SettingsWindow.swift in Sources */,
+				42B030B10998D0535B54C315 /* TimingController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		711E449A178D0AB00936E487 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DED9EDDEA7B803F701F48AD2 /* en */,
+				3AAEEBAF03A8C5855AAAC4C0 /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		746E894A998E4D3D0ACD43D2 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E80431EDEDEE65DD2FBF1631 /* en */,
+				668971A254514001BE0F6FC1 /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		10F868B4C8C1E09CC1437930 /* Debug */ = {
@@ -189,6 +293,24 @@
 			};
 			name = Release;
 		};
+		227B58A42B5631891A0EBC7D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.gltlab.EyeCareTests;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 		72A54D2BD7EA2AAF202F9E62 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -266,6 +388,24 @@
 			};
 			name = Release;
 		};
+		B622EA1712331803BC58A0D4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.gltlab.EyeCareTests;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -274,6 +414,15 @@
 			buildConfigurations = (
 				72A54D2BD7EA2AAF202F9E62 /* Debug */,
 				1A79AE3D212731CB0D2E761E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		A6D55FDFE725EE64E0BE40C1 /* Build configuration list for PBXNativeTarget "EyeCareTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B622EA1712331803BC58A0D4 /* Debug */,
+				227B58A42B5631891A0EBC7D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

@@ -1,0 +1,17 @@
+"app.name" = "EyeCare";
+"menu.nextShort" = "Next eye break in %@";
+"menu.nextLong" = "Next long break in %@";
+"menu.takeShortBreak" = "Rest Eyes Now";
+"menu.takeLongBreak" = "Take Long Break Now";
+"menu.settings" = "Settings…";
+"menu.quit" = "Quit EyeCare";
+"settings.breaks" = "Breaks";
+"settings.shortRule" = "20-20-20 eye break";
+"settings.shortDescription" = "20 seconds every 20 minutes";
+"settings.longInterval" = "Long break interval";
+"settings.longDuration" = "Long break duration";
+"break.short.title" = "Look into the distance";
+"break.short.instruction" = "Look at something about 6 meters (20 feet) away or farther. Blink gently a few times.";
+"break.long.title" = "Take a break from screens";
+"break.long.instruction" = "Step away from your desk, move around, and give your eyes a rest.";
+"break.timeRemaining" = "Time remaining";
