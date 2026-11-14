@@ -2,6 +2,12 @@
 
 EyeCare is a native macOS menu bar app for taking regular screen breaks. It supports macOS 13 and later, with English and Simplified Chinese selected through macOS language settings.
 
+## Download
+
+[EyeCare 1.0.0 (build 2)](https://eyecare-updates.gltlab.net/EyeCare-1.0.0-2.zip) is a universal app signed with the PURE INSIGHT TECHNOLOGY LTD Developer ID and notarized by Apple. Unzip it and move `EyeCare.app` to Applications.
+
+ZIP SHA-256 `cf49d15f66fe338d2d2dacff7166e016868b9640e6a6eb8c15d5ce72b4dc670a`
+
 ## Run locally
 
 Open `EyeCare.xcodeproj` in Xcode and run the EyeCare scheme. Click the eye icon in the menu bar to open Settings or preview a break. Install the app in Applications before testing its login item.
