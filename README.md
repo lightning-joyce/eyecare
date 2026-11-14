@@ -29,16 +29,32 @@ xcodebuild -project EyeCare.xcodeproj -scheme EyeCare -destination 'platform=mac
 
 Sparkle checks for updates in the background and downloads eligible updates to install when EyeCare quits. The menu bar also provides a manual check. The app verifies signed feeds and archives using its embedded EdDSA public key.
 
-The production feed is hosted at [eyecare-updates.gltlab.net/appcast.xml](https://eyecare-updates.gltlab.net/appcast.xml). The signed feed in `updates/feed` is the initial empty deployment. Keep the matching private key outside the repository and retain a secure backup. The release script reads it from `~/.config/eyecare/sparkle-ed25519` by default or from the path in `EYECARE_SPARKLE_KEY_FILE`.
+The [production appcast](https://eyecare-updates.gltlab.net/appcast.xml) advertises the latest release. The signed appcast in `updates/feed` is for bootstrapping the Worker.
 
-To publish a release:
+## Release
 
-1. Increment `CURRENT_PROJECT_VERSION` and set `MARKETING_VERSION` in `project.yml`. Regenerate the project, archive a Release build in Xcode, and export the app for Developer ID distribution. Notarize the export and staple the ticket to the app.
-2. Run `scripts/prepare-update.sh /path/to/EyeCare.app`. The script checks the code signature, notarization ticket, version, and current feed, then prepares and verifies the signed feed and archive. Set `SPARKLE_TOOLS_DIR` if the tools are in a different Derived Data directory.
-3. From the repository root, deploy the printed staging directory and verify that both the feed and its linked archive return HTTP 200:
+Run the release command from the repository root with the intended version and build number.
 
-   ```sh
-   wrangler deploy --config updates/wrangler.jsonc --assets /absolute/path/to/staging --old-asset-ttl 86400
-   ```
+```sh
+./scripts/release.sh 1.0.1 3
+```
 
-   The feed advertises the latest release. Keep a copy of each signed archive for rollback or support.
+Use an `x.y.z` version and a positive integer build number greater than the one in the live appcast. The script sets both values on the Xcode command line. It archives a universal Release build, exports it with Xcode's automatic Developer ID signing, submits it to Apple, and staples the notarization ticket. It then signs the Sparkle appcast and ZIP, deploys them to Cloudflare, and downloads both over HTTPS to verify their contents and signatures.
+
+The release command requires the following maintainer credentials and tools.
+
+- Xcode with the release Apple Developer account signed in and access to cloud-managed Developer ID Application signing. The default team is `Z65CXPU3NX`. Set `EYECARE_TEAM_ID` to use a different team.
+- `asc` configured with an App Store Connect API key for notarization. Install Wrangler, `jq`, and Python 3, and authenticate Wrangler to the account that hosts the update Worker.
+- The private Sparkle signing key that matches `SUPublicEDKey` in `Config/Info.plist`. Keep it outside the repository. The default path is `~/.config/eyecare/sparkle-ed25519`. Set `EYECARE_SPARKLE_KEY_FILE` to use a different path. Xcode resolves the pinned Sparkle tools automatically. Set `SPARKLE_TOOLS_DIR` to use an existing tools directory.
+
+Use `--dry-run` to prepare signed assets and run Wrangler's deployment checks.
+
+```sh
+./scripts/release.sh 1.0.1 3 --dry-run
+```
+
+This submits the build to Apple for notarization and leaves the production appcast as it was. Both modes retain the archive, notarization logs, and release assets in the printed `.build/release-*` directory. Keep a copy of each published ZIP for rollback or support.
+
+## License
+
+EyeCare is available under the [MIT License](LICENSE).
