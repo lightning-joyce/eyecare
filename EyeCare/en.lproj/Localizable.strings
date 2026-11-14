@@ -20,3 +20,4 @@
 "settings.loginApproval" = "Allow EyeCare in System Settings to launch it at login.";
 "settings.loginError" = "EyeCare couldn’t change this login item. Check Login Items in System Settings.";
 "settings.openLoginItems" = "Open Login Items";
+"menu.checkUpdates" = "Check for Updates…";

@@ -20,3 +20,4 @@
 "settings.loginApproval" = "请在系统设置中允许 EyeCare 在登录后启动。";
 "settings.loginError" = "无法更改此登录项。请在系统设置中检查登录项。";
 "settings.openLoginItems" = "打开登录项设置";
+"menu.checkUpdates" = "检查更新…";

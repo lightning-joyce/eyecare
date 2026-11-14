@@ -1,4 +1,5 @@
 import AppKit
+import Sparkle
 
 func localized(_ key: String) -> String {
     NSLocalizedString(key, comment: "")
@@ -23,6 +24,14 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     private let timing = TimingController()
     private let settings = SettingsWindow()
     private let loginItem = LoginItem()
+    private let updates = SPUStandardUpdaterController(
+        startingUpdater: false, updaterDelegate: nil, userDriverDelegate: nil
+    )
+    private lazy var updateItem = NSMenuItem(
+        title: localized("menu.checkUpdates"),
+        action: #selector(SPUStandardUpdaterController.checkForUpdates(_:)),
+        keyEquivalent: ""
+    )
     private let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
     private let shortStatus = NSMenuItem()
     private let longStatus = NSMenuItem()
@@ -45,10 +54,13 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         menu.addItem(longBreakItem)
         menu.addItem(.separator())
         menu.addItem(menuItem("menu.settings", action: #selector(openSettings), key: ","))
+        updateItem.target = updates
+        menu.addItem(updateItem)
         menu.addItem(menuItem("menu.quit", action: #selector(quit), key: "q"))
         statusItem.menu = menu
         timing.start()
         loginItem.initialize()
+        updates.startUpdater()
     }
 
     func applicationDidBecomeActive(_ notification: Notification) {
@@ -64,6 +76,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         longStatus.title = String(format: localized("menu.nextLong"), countdown(timing.untilLongBreak))
         shortBreakItem.isEnabled = timing.canTakeBreak
         longBreakItem.isEnabled = timing.canTakeBreak
+        updateItem.isEnabled = updates.updater.canCheckForUpdates
     }
 
     private func countdown(_ interval: TimeInterval) -> String {

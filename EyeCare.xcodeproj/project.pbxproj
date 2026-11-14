@@ -16,6 +16,7 @@
 		55835CF24850E8B369F73405 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 746E894A998E4D3D0ACD43D2 /* InfoPlist.strings */; };
 		6AFE6FCC2DB42D1D68551679 /* BreakPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03392EDA4338393FEDF3A906 /* BreakPreferences.swift */; };
 		776AD0AC395FED38BC291672 /* BreakOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0DCCBB1AF51FD2D0ADB6DB /* BreakOverlay.swift */; };
+		7F879417CA0E1100A0234E72 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = F391040C9222B0E902D8946B /* Sparkle */; };
 		95F16A176F0592104817BC5D /* BreakSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918B08013345B965ECC12B55 /* BreakSchedule.swift */; };
 		C30124730106856AEE408098 /* BreakScheduleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690C0892AFC087190E8C0FC1 /* BreakScheduleTests.swift */; };
 /* End PBXBuildFile section */
@@ -36,6 +37,17 @@
 		DED9EDDEA7B803F701F48AD2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E80431EDEDEE65DD2FBF1631 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		02713883CB241B85CC63E752 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F879417CA0E1100A0234E72 /* Sparkle in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		5FB1CB765D7773293D1C8FBE /* Products */ = {
@@ -89,6 +101,7 @@
 			buildPhases = (
 				7DBCA495D89B1BC73E96A040 /* Sources */,
 				1D7B4793CF1BFC02C72413E7 /* Resources */,
+				02713883CB241B85CC63E752 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -96,6 +109,7 @@
 			);
 			name = EyeCare;
 			packageProductDependencies = (
+				F391040C9222B0E902D8946B /* Sparkle */,
 			);
 			productName = EyeCare;
 			productReference = 1DF5A1238BE112CAF9AD881D /* EyeCare.app */;
@@ -142,6 +156,9 @@
 			);
 			mainGroup = AD89C8B5C7F9328BFB53CF3C;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				FDE27273EEB9B259B03354DB /* XCRemoteSwiftPackageReference "Sparkle" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5FB1CB765D7773293D1C8FBE /* Products */;
 			projectDirPath = "";
@@ -286,8 +303,8 @@
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_LSUIElement = YES;
+				EYECARE_UPDATE_FEED_URL = "https://eyecare-updates.gltlab.net/appcast.xml";
+				INFOPLIST_FILE = Config/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -323,8 +340,8 @@
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_LSUIElement = YES;
+				EYECARE_UPDATE_FEED_URL = "https://eyecare-updates.gltlab.net/appcast.xml";
+				INFOPLIST_FILE = Config/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -441,6 +458,25 @@
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FDE27273EEB9B259B03354DB /* XCRemoteSwiftPackageReference "Sparkle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparkle-project/Sparkle";
+			requirement = {
+				kind = exactVersion;
+				version = 2.10.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F391040C9222B0E902D8946B /* Sparkle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FDE27273EEB9B259B03354DB /* XCRemoteSwiftPackageReference "Sparkle" */;
+			productName = Sparkle;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 65868FE8C289144641BBDA2D /* Project object */;
 }
