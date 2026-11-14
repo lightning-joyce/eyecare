@@ -1,5 +1,7 @@
 # EyeCare
 
+<img src="EyeCare/Assets.xcassets/AppIcon.appiconset/icon-128x128@2x.png" alt="EyeCare logo" width="128" height="128">
+
 EyeCare is a native macOS menu bar app for taking regular screen breaks. It supports macOS 13 and later, with English and Simplified Chinese selected through macOS language settings.
 
 ## Download

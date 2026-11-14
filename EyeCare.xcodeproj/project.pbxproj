@@ -10,6 +10,7 @@
 		13B7063D63EA8FA87D4DE6BE /* LoginItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FDDE82E9A6C7904D3EC12B /* LoginItem.swift */; };
 		21A500C6F0658A8F8D280198 /* SettingsWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291BCCEA1FA1971BF68A0A86 /* SettingsWindow.swift */; };
 		22EC9C103AAEA1C1E7BFEC7F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 711E449A178D0AB00936E487 /* Localizable.strings */; };
+		26CD36AA04614F658F1C58FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9DA2DAF07E090CA038C742F /* Assets.xcassets */; };
 		32151EFEA9DDD2CCEEA7A5D8 /* EyeCare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E3CB2FFA2C27AF1D5C200 /* EyeCare.swift */; };
 		3B0BF3FAEF7E854C8DE53039 /* BreakSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918B08013345B965ECC12B55 /* BreakSchedule.swift */; };
 		42B030B10998D0535B54C315 /* TimingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F51953C695259CDAAB8BF37 /* TimingController.swift */; };
@@ -36,6 +37,7 @@
 		A7FDDE82E9A6C7904D3EC12B /* LoginItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginItem.swift; sourceTree = "<group>"; };
 		DED9EDDEA7B803F701F48AD2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E80431EDEDEE65DD2FBF1631 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E9DA2DAF07E090CA038C742F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		8C63D0282309A363C6DB9402 /* EyeCare */ = {
 			isa = PBXGroup;
 			children = (
+				E9DA2DAF07E090CA038C742F /* Assets.xcassets */,
 				2E0DCCBB1AF51FD2D0ADB6DB /* BreakOverlay.swift */,
 				03392EDA4338393FEDF3A906 /* BreakPreferences.swift */,
 				918B08013345B965ECC12B55 /* BreakSchedule.swift */,
@@ -175,6 +178,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26CD36AA04614F658F1C58FD /* Assets.xcassets in Resources */,
 				55835CF24850E8B369F73405 /* InfoPlist.strings in Resources */,
 				22EC9C103AAEA1C1E7BFEC7F /* Localizable.strings in Resources */,
 			);

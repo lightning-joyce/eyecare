@@ -39,8 +39,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     private lazy var longBreakItem = menuItem("menu.takeLongBreak", action: #selector(takeLongBreak))
 
     func applicationDidFinishLaunching(_ notification: Notification) {
-        statusItem.button?.image = NSImage(systemSymbolName: "eye", accessibilityDescription: localized("app.name"))
-        statusItem.button?.toolTip = localized("app.name")
+        if let button = statusItem.button {
+            button.image = NSImage(named: "MenuBarIcon")
+            button.setAccessibilityLabel(localized("app.name"))
+            button.toolTip = localized("app.name")
+        }
 
         let menu = NSMenu()
         menu.autoenablesItems = false
