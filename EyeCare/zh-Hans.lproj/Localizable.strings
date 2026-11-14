@@ -15,3 +15,8 @@
 "break.long.title" = "离开屏幕休息一下";
 "break.long.instruction" = "离开桌前走一走，让眼睛休息片刻。";
 "break.timeRemaining" = "剩余时间";
+"settings.startup" = "启动";
+"settings.launchAtLogin" = "登录后自动启动";
+"settings.loginApproval" = "请在系统设置中允许 EyeCare 在登录后启动。";
+"settings.loginError" = "无法更改此登录项。请在系统设置中检查登录项。";
+"settings.openLoginItems" = "打开登录项设置";

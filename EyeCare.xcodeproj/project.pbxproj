@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13B7063D63EA8FA87D4DE6BE /* LoginItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FDDE82E9A6C7904D3EC12B /* LoginItem.swift */; };
 		21A500C6F0658A8F8D280198 /* SettingsWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291BCCEA1FA1971BF68A0A86 /* SettingsWindow.swift */; };
 		22EC9C103AAEA1C1E7BFEC7F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 711E449A178D0AB00936E487 /* Localizable.strings */; };
 		32151EFEA9DDD2CCEEA7A5D8 /* EyeCare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E3CB2FFA2C27AF1D5C200 /* EyeCare.swift */; };
@@ -31,6 +32,7 @@
 		918B08013345B965ECC12B55 /* BreakSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakSchedule.swift; sourceTree = "<group>"; };
 		981EEB7942B9979074FB1593 /* EyeCareTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EyeCareTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F51953C695259CDAAB8BF37 /* TimingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimingController.swift; sourceTree = "<group>"; };
+		A7FDDE82E9A6C7904D3EC12B /* LoginItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginItem.swift; sourceTree = "<group>"; };
 		DED9EDDEA7B803F701F48AD2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E80431EDEDEE65DD2FBF1631 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -52,6 +54,7 @@
 				03392EDA4338393FEDF3A906 /* BreakPreferences.swift */,
 				918B08013345B965ECC12B55 /* BreakSchedule.swift */,
 				274E3CB2FFA2C27AF1D5C200 /* EyeCare.swift */,
+				A7FDDE82E9A6C7904D3EC12B /* LoginItem.swift */,
 				291BCCEA1FA1971BF68A0A86 /* SettingsWindow.swift */,
 				9F51953C695259CDAAB8BF37 /* TimingController.swift */,
 				746E894A998E4D3D0ACD43D2 /* InfoPlist.strings */,
@@ -180,6 +183,7 @@
 				6AFE6FCC2DB42D1D68551679 /* BreakPreferences.swift in Sources */,
 				95F16A176F0592104817BC5D /* BreakSchedule.swift in Sources */,
 				32151EFEA9DDD2CCEEA7A5D8 /* EyeCare.swift in Sources */,
+				13B7063D63EA8FA87D4DE6BE /* LoginItem.swift in Sources */,
 				21A500C6F0658A8F8D280198 /* SettingsWindow.swift in Sources */,
 				42B030B10998D0535B54C315 /* TimingController.swift in Sources */,
 			);

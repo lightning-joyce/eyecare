@@ -22,6 +22,7 @@ enum EyeCare {
 final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     private let timing = TimingController()
     private let settings = SettingsWindow()
+    private let loginItem = LoginItem()
     private let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
     private let shortStatus = NSMenuItem()
     private let longStatus = NSMenuItem()
@@ -47,6 +48,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         menu.addItem(menuItem("menu.quit", action: #selector(quit), key: "q"))
         statusItem.menu = menu
         timing.start()
+        loginItem.initialize()
+    }
+
+    func applicationDidBecomeActive(_ notification: Notification) {
+        loginItem.refresh()
     }
 
     func applicationWillTerminate(_ notification: Notification) {
@@ -72,6 +78,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
 
     @objc private func takeShortBreak() { timing.takeBreak(.short) }
     @objc private func takeLongBreak() { timing.takeBreak(.long) }
-    @objc func openSettings() { settings.show(timing: timing) }
+    @objc func openSettings() {
+        loginItem.refresh()
+        settings.show(timing: timing, loginItem: loginItem)
+    }
     @objc private func quit() { NSApp.terminate(nil) }
 }

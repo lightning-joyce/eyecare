@@ -5,18 +5,18 @@ import SwiftUI
 final class SettingsWindow {
     private var window: NSWindow?
 
-    func show(timing: TimingController) {
+    func show(timing: TimingController, loginItem: LoginItem) {
         if window == nil {
             let window = NSWindow(
-                contentRect: NSRect(x: 0, y: 0, width: 520, height: 260),
+                contentRect: NSRect(x: 0, y: 0, width: 520, height: 362),
                 styleMask: [.titled, .closable], backing: .buffered, defer: false
             )
             window.title = localized("menu.settings")
             window.isReleasedWhenClosed = false
-            let controller = NSHostingController(rootView: SettingsView(timing: timing))
+            let controller = NSHostingController(rootView: SettingsView(timing: timing, loginItem: loginItem))
             controller.sizingOptions = []
             window.contentViewController = controller
-            window.setContentSize(NSSize(width: 520, height: 260))
+            window.setContentSize(NSSize(width: 520, height: 362))
             window.center()
             self.window = window
         }
@@ -28,6 +28,7 @@ final class SettingsWindow {
 
 private struct SettingsView: View {
     let timing: TimingController
+    @ObservedObject var loginItem: LoginItem
     @AppStorage(BreakPreferences.hoursKey) private var hours = BreakPreferences.defaultHours
     @AppStorage(BreakPreferences.minutesKey) private var minutes = BreakPreferences.defaultMinutes
 
@@ -53,6 +54,22 @@ private struct SettingsView: View {
                 }
             } header: {
                 Text("settings.breaks")
+            }
+
+            Section {
+                Toggle("settings.launchAtLogin", isOn: Binding(
+                    get: { loginItem.isOn },
+                    set: { loginItem.setEnabled($0) }
+                ))
+                if loginItem.status == .requiresApproval || loginItem.failed {
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text(loginItem.failed ? "settings.loginError" : "settings.loginApproval")
+                            .foregroundStyle(.secondary)
+                        Button("settings.openLoginItems") { loginItem.openSystemSettings() }
+                    }
+                }
+            } header: {
+                Text("settings.startup")
             }
         }
         .formStyle(.grouped)
