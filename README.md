@@ -6,11 +6,11 @@ EyeCare is a native macOS menu bar app for taking regular screen breaks. It supp
 
 ## Download
 
-[Download EyeCare 1.0.0 for macOS](https://github.com/lightning-joyce/eyecare/releases/download/v1.0.0/EyeCare-1.0.0-2.zip). Unzip the download, move `EyeCare.app` to Applications, and open it. The ZIP contains build 2 for both Apple silicon and Intel Macs. The app is signed with the PURE INSIGHT TECHNOLOGY LTD Developer ID and notarized by Apple.
+[Download EyeCare 1.1.0 for macOS](https://github.com/lightning-joyce/eyecare/releases/download/v1.1.0/EyeCare-1.1.0-3.zip). Unzip the download, move `EyeCare.app` to Applications, and open it. The ZIP contains build 3 for both Apple silicon and Intel Macs. The app is signed with the PURE INSIGHT TECHNOLOGY LTD Developer ID and notarized by Apple.
 
-[Browse GitHub Releases](https://github.com/lightning-joyce/eyecare/releases) · [Download from gltlab.net](https://eyecare-updates.gltlab.net/EyeCare-1.0.0-2.zip)
+[Browse GitHub Releases](https://github.com/lightning-joyce/eyecare/releases) · [Download from gltlab.net](https://eyecare-updates.gltlab.net/EyeCare-1.1.0-3.zip)
 
-ZIP SHA-256 `cf49d15f66fe338d2d2dacff7166e016868b9640e6a6eb8c15d5ce72b4dc670a`
+ZIP SHA-256 `a0f6e8ba704c78eac945843c5e7e92ebef432ad9dfc4506c2de9f9e58900aa58`
 
 ## Screenshots
 
