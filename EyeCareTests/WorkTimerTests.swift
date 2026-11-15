@@ -1,6 +1,38 @@
 import XCTest
 
 final class WorkTimerTests: XCTestCase {
+    func testEndingShortBreakEarlyResumesWorkAndPreservesLongBreakProgress() {
+        var timer = WorkTimer(now: 0)
+        timer.update(at: 1200, idleSeconds: 0, suspended: false)
+        XCTAssertEqual(timer.schedule.session?.kind, .short)
+
+        timer.endBreak(at: 1202)
+        XCTAssertNil(timer.schedule.session)
+        XCTAssertEqual(timer.schedule.untilShortBreak, 1200)
+        XCTAssertEqual(timer.schedule.untilLongBreak, 2400)
+
+        timer.update(at: 1203, idleSeconds: 0, suspended: false)
+        XCTAssertNil(timer.schedule.session)
+        XCTAssertEqual(timer.schedule.untilShortBreak, 1199)
+        XCTAssertEqual(timer.schedule.untilLongBreak, 2399)
+    }
+
+    func testEndingLongBreakEarlyDoesNotImmediatelyShowAnOverlayAgain() {
+        var timer = WorkTimer(now: 0)
+        timer.update(at: 3600, idleSeconds: 0, suspended: false)
+        XCTAssertEqual(timer.schedule.session?.kind, .long)
+        timer.update(at: 3720, idleSeconds: 120, suspended: false)
+        XCTAssertNotNil(timer.awaySince)
+
+        timer.endBreak(at: 3721)
+        XCTAssertNil(timer.schedule.session)
+        XCTAssertNil(timer.awaySince)
+        timer.update(at: 3722, idleSeconds: 122, suspended: false)
+        XCTAssertNil(timer.schedule.session)
+        XCTAssertEqual(timer.schedule.untilShortBreak, 1199)
+        XCTAssertEqual(timer.schedule.untilLongBreak, 3599)
+    }
+
     func testIdleTimeIsRemovedAndOnlyTheDistanceBreakResetsAfterThreeMinutes() {
         var timer = WorkTimer(now: 0)
         timer.update(at: 600, idleSeconds: 0, suspended: false)

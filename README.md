@@ -20,7 +20,7 @@ ZIP SHA-256 `cf49d15f66fe338d2d2dacff7166e016868b9640e6a6eb8c15d5ce72b4dc670a`
 
 **20-second distance break**
 
-![EyeCare's full-screen distance break showing instructions and a 20-second countdown](docs/screenshots/eye-break.png)
+![EyeCare's full-screen distance break showing a 20-second countdown and the End Break Early button](docs/screenshots/eye-break.png)
 
 ## Run locally
 
@@ -39,7 +39,7 @@ xcodebuild -project EyeCare.xcodeproj -scheme EyeCare -destination 'platform=mac
 - With the screen on, two minutes without input counts as time away by default. Settings allows an idle threshold of 1–10 minutes. EyeCare excludes that time from both timers starting at the last input. A reminder that comes due after 30 seconds without input waits for the next input or a natural break.
 - On return, an absence of at least 20 seconds resets the distance break timer. An absence that also meets the configured long break duration resets both timers.
 - Use **Keep Counting for 30 Minutes** in the menu bar for reading, video, or meetings. During that time, idle input does not pause counting. Locking or sleeping your Mac still pauses it. Choose **Resume Idle Detection** to end the mode early.
-- The overlay covers each connected display until its countdown finishes. The app uses macOS windows for interruption and macOS continues to handle system shortcuts.
+- The overlay covers each connected display during a break. Click **End Break Early** or press **Esc** if you need to get back to work immediately. The next reminder follows the usual schedule.
 - Launch at login is enabled on first run through Service Management. Later choices in the app or in System Settings are respected.
 
 ## Automatic updates
@@ -53,7 +53,7 @@ The [production appcast](https://eyecare-updates.gltlab.net/appcast.xml) adverti
 Run the release command from the repository root with the intended version and build number.
 
 ```sh
-./scripts/release.sh 1.0.1 3
+./scripts/release.sh 1.1.1 4
 ```
 
 Use an `x.y.z` version and a positive integer build number greater than the one in the live appcast. The script sets both values on the Xcode command line. It archives a universal Release build, exports it with Xcode's automatic Developer ID signing, submits it to Apple, and staples the notarization ticket. It then signs the Sparkle appcast and ZIP, deploys them to Cloudflare, and downloads both over HTTPS to verify their contents and signatures.
@@ -67,7 +67,7 @@ The release command requires the following maintainer credentials and tools.
 Use `--dry-run` to prepare signed assets and run Wrangler's deployment checks.
 
 ```sh
-./scripts/release.sh 1.0.1 3 --dry-run
+./scripts/release.sh 1.1.1 4 --dry-run
 ```
 
 This submits the build to Apple for notarization and leaves the production appcast as it was. Both modes retain the archive, notarization logs, and release assets in the printed `.build/release-*` directory. Keep a copy of each published ZIP for rollback or support.

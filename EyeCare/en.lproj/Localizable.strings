@@ -15,6 +15,8 @@
 "break.long.title" = "Take a break from screens";
 "break.long.instruction" = "Step away from your desk, move around, and give your eyes a rest.";
 "break.timeRemaining" = "Time remaining";
+"break.endEarly" = "End Break Early";
+"break.endEarlyHelp" = "You can also press Esc to end this break.";
 "settings.startup" = "Startup";
 "settings.launchAtLogin" = "Launch at login";
 "settings.loginApproval" = "Allow EyeCare in System Settings to launch it at login.";

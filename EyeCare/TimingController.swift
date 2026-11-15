@@ -86,6 +86,13 @@ final class TimingController: ObservableObject {
         present(at: timestamp)
     }
 
+    func endBreakEarly() {
+        guard session != nil, suspensions.isEmpty else { return }
+        let timestamp = now
+        workTimer.endBreak(at: timestamp)
+        present(at: timestamp)
+    }
+
     func toggleReadingMode() {
         guard canTakeBreak else { return }
         let timestamp = now

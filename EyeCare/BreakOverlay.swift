@@ -49,6 +49,7 @@ final class BreakOverlay {
             window.animationBehavior = .none
             window.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary, .stationary, .ignoresCycle]
             window.collectionBehavior.insert(.canJoinAllApplications)
+            window.onEscape = { [weak timing] in timing?.endBreakEarly() }
             window.contentView = NSHostingView(rootView: BreakView(timing: timing))
             window.orderFrontRegardless()
             return window
@@ -60,11 +61,19 @@ final class BreakOverlay {
 }
 
 private final class OverlayWindow: NSWindow {
+    var onEscape: (() -> Void)?
+
     override var canBecomeKey: Bool { true }
 
     override func sendEvent(_ event: NSEvent) {
         switch event.type {
-        case .keyDown, .keyUp, .flagsChanged:
+        case .keyDown:
+            let modifiers: NSEvent.ModifierFlags = [.command, .control, .option, .shift]
+            if !event.isARepeat, event.modifierFlags.intersection(modifiers).isEmpty,
+               event.charactersIgnoringModifiers == "\u{1B}" {
+                onEscape?()
+            }
+        case .keyUp, .flagsChanged:
             return
         default:
             super.sendEvent(event)
@@ -104,6 +113,12 @@ private struct BreakView: View {
                     .tint(.mint)
                     .frame(maxWidth: 240)
                     .accessibilityHidden(true)
+
+                Button("break.endEarly") {
+                    timing.endBreakEarly()
+                }
+                .buttonStyle(.bordered)
+                .help(Text("break.endEarlyHelp"))
             }
             .padding(32)
             .frame(maxWidth: 600)

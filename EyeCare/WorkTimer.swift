@@ -81,6 +81,14 @@ struct WorkTimer {
         workSince = now
     }
 
+    mutating func endBreak(at now: TimeInterval) {
+        guard schedule.session != nil else { return }
+        schedule.finishBreak(at: now)
+        awaySince = nil
+        idleDetectionSince = now
+        workSince = now
+    }
+
     mutating func keepTiming(at now: TimeInterval) {
         readingUntil = now + Self.readingDuration
     }

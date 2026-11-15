@@ -15,6 +15,8 @@
 "break.long.title" = "离开屏幕休息一下";
 "break.long.instruction" = "离开桌前走一走，让眼睛休息片刻。";
 "break.timeRemaining" = "剩余时间";
+"break.endEarly" = "提前结束休息";
+"break.endEarlyHelp" = "也可以按 Esc 键结束本次休息。";
 "settings.startup" = "启动";
 "settings.launchAtLogin" = "登录后自动启动";
 "settings.loginApproval" = "请在系统设置中允许 EyeCare 在登录后启动。";

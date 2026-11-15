@@ -41,7 +41,7 @@ struct BreakSchedule {
 
         if let session {
             guard now >= session.endsAt else { return }
-            self.session = nil
+            finishBreak(at: now)
             return
         }
 
@@ -67,6 +67,11 @@ struct BreakSchedule {
         }
         lastUpdate = now
         session = BreakSession(kind: kind, duration: duration, endsAt: now + duration)
+    }
+
+    mutating func finishBreak(at now: TimeInterval) {
+        session = nil
+        lastUpdate = now
     }
 
     mutating func excludeIdleWork(_ duration: TimeInterval) {
