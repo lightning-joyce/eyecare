@@ -31,6 +31,7 @@ private struct SettingsView: View {
     @ObservedObject var loginItem: LoginItem
     @AppStorage(BreakPreferences.hoursKey) private var hours = BreakPreferences.defaultHours
     @AppStorage(BreakPreferences.minutesKey) private var minutes = BreakPreferences.defaultMinutes
+    @AppStorage(BreakPreferences.idleMinutesKey) private var idleMinutes = BreakPreferences.defaultIdleMinutes
 
     var body: some View {
         Form {
@@ -49,6 +50,12 @@ private struct SettingsView: View {
                 Stepper(value: $minutes, in: BreakPreferences.minuteRange) {
                     LabeledContent("settings.longDuration") {
                         Text(Duration.seconds(minutes * 60).formatted(.units(allowed: [.minutes], width: .wide)))
+                            .monospacedDigit()
+                    }
+                }
+                Stepper(value: $idleMinutes, in: BreakPreferences.idleMinuteRange) {
+                    LabeledContent("settings.idleThreshold") {
+                        Text(Duration.seconds(idleMinutes * 60).formatted(.units(allowed: [.minutes], width: .wide)))
                             .monospacedDigit()
                     }
                 }
@@ -75,5 +82,6 @@ private struct SettingsView: View {
         .formStyle(.grouped)
         .onChange(of: hours) { _ in timing.reloadPreferences() }
         .onChange(of: minutes) { _ in timing.reloadPreferences() }
+        .onChange(of: idleMinutes) { _ in timing.reloadPreferences() }
     }
 }

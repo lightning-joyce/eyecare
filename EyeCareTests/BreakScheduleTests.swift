@@ -34,7 +34,7 @@ final class BreakScheduleTests: XCTestCase {
     func testSuspensionPausesWorkAndLetsAnActiveBreakFinish() {
         var schedule = BreakSchedule(now: 0)
         schedule.advance(to: 600, countingWork: true, canStartBreak: false)
-        schedule.resetShortWork()
+        schedule.creditNaturalBreak(20)
         schedule.advance(to: 7200, countingWork: false, canStartBreak: false)
         XCTAssertEqual(schedule.untilShortBreak, 1200)
         XCTAssertEqual(schedule.untilLongBreak, 3000)

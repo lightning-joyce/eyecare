@@ -1,5 +1,6 @@
 import AppKit
 import Combine
+import CoreGraphics
 
 @MainActor
 final class TimingController: ObservableObject {
@@ -15,15 +16,23 @@ final class TimingController: ObservableObject {
 
     private let defaults: UserDefaults
     private let clockOrigin = ContinuousClock.now
-    private var schedule = BreakSchedule(now: 0)
+    private var workTimer = WorkTimer(now: 0)
     private var suspensions: Set<Suspension> = []
     private var timer: Timer?
     private var observations: Set<AnyCancellable> = []
     private let overlay = BreakOverlay()
 
-    var untilShortBreak: TimeInterval { schedule.untilShortBreak }
-    var untilLongBreak: TimeInterval { schedule.untilLongBreak }
-    var canTakeBreak: Bool { schedule.session == nil && suspensions.isEmpty }
+    var untilShortBreak: TimeInterval { workTimer.schedule.untilShortBreak }
+    var untilLongBreak: TimeInterval { workTimer.schedule.untilLongBreak }
+    var isAway: Bool { workTimer.awaySince != nil }
+    var readingModeRemaining: TimeInterval? { workTimer.readingUntil.map { max(0, $0 - now) } }
+    var canTakeBreak: Bool { workTimer.schedule.session == nil && suspensions.isEmpty }
+
+    private var idleSeconds: TimeInterval {
+        // Swift does not import kCGAnyInputEventType, a C macro cast to CGEventType.
+        let anyInput = CGEventType(rawValue: UInt32.max)!
+        return CGEventSource.secondsSinceLastEventType(.hidSystemState, eventType: anyInput)
+    }
 
     private var now: TimeInterval {
         let elapsed = clockOrigin.duration(to: .now).components
@@ -64,26 +73,41 @@ final class TimingController: ObservableObject {
     }
 
     func reloadPreferences() {
-        schedule.longInterval = Double(BreakPreferences.hours(in: defaults) * 3600)
-        schedule.longDuration = Double(BreakPreferences.minutes(in: defaults) * 60)
+        workTimer.schedule.longInterval = Double(BreakPreferences.hours(in: defaults) * 3600)
+        workTimer.schedule.longDuration = Double(BreakPreferences.minutes(in: defaults) * 60)
+        workTimer.idleThreshold = Double(BreakPreferences.idleMinutes(in: defaults) * 60)
     }
 
     func takeBreak(_ kind: BreakKind) {
         guard canTakeBreak else { return }
         let timestamp = now
-        schedule.advance(to: timestamp, countingWork: true, canStartBreak: false)
-        schedule.start(kind, at: timestamp)
+        workTimer.update(at: timestamp, idleSeconds: 0, suspended: false, allowReminder: false)
+        workTimer.startBreak(kind, at: timestamp)
         present(at: timestamp)
     }
 
-    private func update() {
+    func toggleReadingMode() {
+        guard canTakeBreak else { return }
         let timestamp = now
-        schedule.advance(to: timestamp, countingWork: suspensions.isEmpty, canStartBreak: suspensions.isEmpty)
+        workTimer.update(at: timestamp, idleSeconds: 0, suspended: false, allowReminder: false)
+        if workTimer.readingUntil == nil {
+            workTimer.keepTiming(at: timestamp)
+        } else {
+            workTimer.endReadingMode(at: timestamp)
+        }
+    }
+
+    private func update(allowReminder: Bool = true) {
+        let idle = idleSeconds
+        let timestamp = now
+        workTimer.update(
+            at: timestamp, idleSeconds: idle, suspended: !suspensions.isEmpty, allowReminder: allowReminder
+        )
         present(at: timestamp)
     }
 
     private func present(at timestamp: TimeInterval) {
-        let visibleSession = suspensions.isEmpty ? schedule.session : nil
+        let visibleSession = suspensions.isEmpty ? workTimer.schedule.session : nil
         let previousSession = session
         if let visibleSession {
             let remaining = Int(ceil(max(0, visibleSession.endsAt - timestamp)))
@@ -107,16 +131,11 @@ final class TimingController: ObservableObject {
     }
 
     private func setSuspended(_ reason: Suspension, suspended: Bool) {
-        let wasActive = suspensions.isEmpty
         if suspended {
             suspensions.insert(reason)
         } else {
             suspensions.remove(reason)
         }
-        let isActive = suspensions.isEmpty
-        let timestamp = now
-        schedule.advance(to: timestamp, countingWork: wasActive, canStartBreak: false)
-        if wasActive && !isActive { schedule.resetShortWork() }
-        present(at: timestamp)
+        update(allowReminder: false)
     }
 }

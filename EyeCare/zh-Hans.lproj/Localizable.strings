@@ -21,3 +21,9 @@
 "settings.loginError" = "无法更改此登录项。请在系统设置中检查登录项。";
 "settings.openLoginItems" = "打开登录项设置";
 "menu.checkUpdates" = "检查更新…";
+"menu.timing" = "计时中";
+"menu.idlePaused" = "离开期间暂停计时";
+"menu.startReadingMode" = "继续计时 30 分钟";
+"menu.endReadingMode" = "恢复空闲检测";
+"menu.readingModeRemaining" = "暂停空闲检测，还剩 %@";
+"settings.idleThreshold" = "无键鼠操作多久后暂停";

@@ -33,10 +33,12 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         keyEquivalent: ""
     )
     private let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
+    private let timingStatus = NSMenuItem()
     private let shortStatus = NSMenuItem()
     private let longStatus = NSMenuItem()
     private lazy var shortBreakItem = menuItem("menu.takeShortBreak", action: #selector(takeShortBreak))
     private lazy var longBreakItem = menuItem("menu.takeLongBreak", action: #selector(takeLongBreak))
+    private lazy var readingModeItem = menuItem("menu.startReadingMode", action: #selector(toggleReadingMode))
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         if let button = statusItem.button {
@@ -48,13 +50,14 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         let menu = NSMenu()
         menu.autoenablesItems = false
         menu.delegate = self
-        for item in [shortStatus, longStatus] {
+        for item in [timingStatus, shortStatus, longStatus] {
             item.isEnabled = false
             menu.addItem(item)
         }
         menu.addItem(.separator())
         menu.addItem(shortBreakItem)
         menu.addItem(longBreakItem)
+        menu.addItem(readingModeItem)
         menu.addItem(.separator())
         menu.addItem(menuItem("menu.settings", action: #selector(openSettings), key: ","))
         updateItem.target = updates
@@ -75,10 +78,20 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     }
 
     func menuWillOpen(_ menu: NSMenu) {
+        let readingRemaining = timing.readingModeRemaining
+        if timing.isAway {
+            timingStatus.title = localized("menu.idlePaused")
+        } else if let readingRemaining {
+            timingStatus.title = String(format: localized("menu.readingModeRemaining"), countdown(readingRemaining))
+        } else {
+            timingStatus.title = localized("menu.timing")
+        }
         shortStatus.title = String(format: localized("menu.nextShort"), countdown(timing.untilShortBreak))
         longStatus.title = String(format: localized("menu.nextLong"), countdown(timing.untilLongBreak))
         shortBreakItem.isEnabled = timing.canTakeBreak
         longBreakItem.isEnabled = timing.canTakeBreak
+        readingModeItem.title = localized(readingRemaining == nil ? "menu.startReadingMode" : "menu.endReadingMode")
+        readingModeItem.isEnabled = timing.canTakeBreak
         updateItem.isEnabled = updates.updater.canCheckForUpdates
     }
 
@@ -94,6 +107,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
 
     @objc private func takeShortBreak() { timing.takeBreak(.short) }
     @objc private func takeLongBreak() { timing.takeBreak(.long) }
+    @objc private func toggleReadingMode() { timing.toggleReadingMode() }
     @objc func openSettings() {
         loginItem.refresh()
         settings.show(timing: timing, loginItem: loginItem)

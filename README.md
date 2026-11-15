@@ -34,8 +34,11 @@ xcodebuild -project EyeCare.xcodeproj -scheme EyeCare -destination 'platform=mac
 
 ## Break behavior
 
-- A 20-second distance break starts every 20 minutes of active screen time. Display sleep, system sleep, screen lock, and switching away from the macOS session pause counting. They also restart the continuous time used for distance breaks.
+- A 20-second distance break starts every 20 minutes of active screen time. Display sleep, system sleep, screen lock, and switching away from the macOS session pause counting until input resumes.
 - A five-minute break starts after one hour of active screen time by default. Settings allows a long break interval of 1–24 hours and a duration of 1–60 minutes. Break time is excluded from both timers. A long break takes priority when both timers are due.
+- With the screen on, two minutes without input counts as time away by default. Settings allows an idle threshold of 1–10 minutes. EyeCare excludes that time from both timers starting at the last input. A reminder that comes due after 30 seconds without input waits for the next input or a natural break.
+- On return, an absence of at least 20 seconds resets the distance break timer. An absence that also meets the configured long break duration resets both timers.
+- Use **Keep Counting for 30 Minutes** in the menu bar for reading, video, or meetings. During that time, idle input does not pause counting. Locking or sleeping your Mac still pauses it. Choose **Resume Idle Detection** to end the mode early.
 - The overlay covers each connected display until its countdown finishes. The app uses macOS windows for interruption and macOS continues to handle system shortcuts.
 - Launch at login is enabled on first run through Service Management. Later choices in the app or in System Settings are respected.
 

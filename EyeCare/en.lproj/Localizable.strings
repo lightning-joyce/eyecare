@@ -21,3 +21,9 @@
 "settings.loginError" = "EyeCare couldn’t change this login item. Check Login Items in System Settings.";
 "settings.openLoginItems" = "Open Login Items";
 "menu.checkUpdates" = "Check for Updates…";
+"menu.timing" = "Timing is active";
+"menu.idlePaused" = "Timing paused while you’re away";
+"menu.startReadingMode" = "Keep Counting for 30 Minutes";
+"menu.endReadingMode" = "Resume Idle Detection";
+"menu.readingModeRemaining" = "Counting without idle detection for %@";
+"settings.idleThreshold" = "Pause after no input for";

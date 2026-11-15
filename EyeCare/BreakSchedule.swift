@@ -21,7 +21,7 @@ struct BreakSchedule {
     private(set) var session: BreakSession?
     private var shortWork: TimeInterval = 0
     private var longWork: TimeInterval = 0
-    private var lastUpdate: TimeInterval
+    private(set) var lastUpdate: TimeInterval
 
     init(now: TimeInterval) {
         lastUpdate = now
@@ -69,7 +69,13 @@ struct BreakSchedule {
         session = BreakSession(kind: kind, duration: duration, endsAt: now + duration)
     }
 
-    mutating func resetShortWork() {
-        shortWork = 0
+    mutating func excludeIdleWork(_ duration: TimeInterval) {
+        shortWork = max(0, shortWork - duration)
+        longWork = max(0, longWork - duration)
+    }
+
+    mutating func creditNaturalBreak(_ duration: TimeInterval) {
+        if duration >= Self.shortDuration { shortWork = 0 }
+        if duration >= longDuration { longWork = 0 }
     }
 }
