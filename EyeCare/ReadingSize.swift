@@ -1,36 +1,46 @@
 import Foundation
 
-enum ReadingSize: String, CaseIterable {
-    case standard
-    case large
-    case extraLarge
+struct ReadingSize: Equatable {
+    static let systemLevels = 0...14
+    static let finderPoints = 10...32
+    static let defaultPoints = 13
+    let points: Int
+
+    init(points: Int) {
+        self.points = min(Self.finderPoints.upperBound, max(Self.finderPoints.lowerBound, points))
+    }
 
     var systemSliderValue: Int {
-        switch self {
-        case .standard: return 4
-        case .large: return 6
-        case .extraLarge: return 8
+        // Preserve the positions used by the old 13, 15, and 16 point presets.
+        switch points {
+        case ..<13: return (4 * (points - 10) + 1) / 3
+        case ..<16: return points - 9
+        default: return 8 + (6 * (points - 16) + 8) / 16
         }
-    }
-
-    var fileListPoints: Int {
-        switch self {
-        case .standard: return 13
-        case .large: return 15
-        case .extraLarge: return 16
-        }
-    }
-
-    var fileIconPoints: Int {
-        self == .standard ? 12 : fileListPoints
     }
 
     var browserPixels: Int {
-        switch self {
-        case .standard: return 16
-        case .large: return 20
-        case .extraLarge: return 24
+        points < 16 ? 16 + 2 * (points - 13) : 24 + 2 * (points - 16)
+    }
+}
+
+struct ReadingSizePreferences {
+    private let pointsKey = "readingSize.points"
+    var defaults: UserDefaults = .standard
+
+    var selectedSize: ReadingSize {
+        if let points = defaults.object(forKey: pointsKey) as? Int {
+            return ReadingSize(points: points)
         }
+        switch defaults.string(forKey: "readingSize") {
+        case "large": return ReadingSize(points: 15)
+        case "extraLarge": return ReadingSize(points: 16)
+        default: return ReadingSize(points: ReadingSize.defaultPoints)
+        }
+    }
+
+    func save(_ size: ReadingSize) {
+        defaults.set(size.points, forKey: pointsKey)
     }
 }
 
@@ -50,7 +60,7 @@ enum FinderTextSize {
             var settings = result[key] as? [String: Any] ?? [:]
             for view in [listKey, "ListViewSettings", "ColumnViewSettings", iconKey] {
                 if var options = settings[view] as? [String: Any] {
-                    options["textSize"] = view == iconKey ? size.fileIconPoints : size.fileListPoints
+                    options["textSize"] = size.points
                     settings[view] = options
                 }
             }
@@ -61,8 +71,8 @@ enum FinderTextSize {
         let finder = result[standardKey] as? [String: Any]
         var list = (result[panelListKey] ?? panel?[listKey] ?? finder?[listKey]) as? [String: Any] ?? [:]
         var icons = (result[panelIconKey] ?? panel?[iconKey] ?? finder?[iconKey]) as? [String: Any] ?? [:]
-        list["textSize"] = size.fileListPoints
-        icons["textSize"] = size.fileIconPoints
+        list["textSize"] = size.points
+        icons["textSize"] = size.points
         result[panelListKey] = list
         result[panelIconKey] = icons
         return result
@@ -79,7 +89,7 @@ enum FinderTextSize {
         let stored = CFPreferencesCopyMultiple(
             keys as CFArray, domain, kCFPreferencesCurrentUser, kCFPreferencesAnyHost
         ) as? [String: Any]
-        return (stored?[panelListKey] as? [String: Any])?["textSize"] as? Int == size.fileListPoints
-            && (stored?[panelIconKey] as? [String: Any])?["textSize"] as? Int == size.fileIconPoints
+        return (stored?[panelListKey] as? [String: Any])?["textSize"] as? Int == size.points
+            && (stored?[panelIconKey] as? [String: Any])?["textSize"] as? Int == size.points
     }
 }

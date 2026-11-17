@@ -25,6 +25,7 @@
 		7F879417CA0E1100A0234E72 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = F391040C9222B0E902D8946B /* Sparkle */; };
 		948DA99C98E492A825791690 /* BrowserTextSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFC5AFEE3B2903D7003977B /* BrowserTextSize.swift */; };
 		95F16A176F0592104817BC5D /* BreakSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918B08013345B965ECC12B55 /* BreakSchedule.swift */; };
+		AA50434B684E1B9DAF18214B /* ReadingSizeEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C839C087BD7347B5176AFD /* ReadingSizeEditor.swift */; };
 		AA60BB7015576553F71236DB /* BrowserTextSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFC5AFEE3B2903D7003977B /* BrowserTextSize.swift */; };
 		C30124730106856AEE408098 /* BreakScheduleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690C0892AFC087190E8C0FC1 /* BreakScheduleTests.swift */; };
 		CE37EC4ED4682D950DAB5526 /* ReadingSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5790EFB28C078128041656C0 /* ReadingSize.swift */; };
@@ -48,6 +49,7 @@
 		690C0892AFC087190E8C0FC1 /* BreakScheduleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakScheduleTests.swift; sourceTree = "<group>"; };
 		918B08013345B965ECC12B55 /* BreakSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakSchedule.swift; sourceTree = "<group>"; };
 		981EEB7942B9979074FB1593 /* EyeCareTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EyeCareTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		98C839C087BD7347B5176AFD /* ReadingSizeEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingSizeEditor.swift; sourceTree = "<group>"; };
 		9F51953C695259CDAAB8BF37 /* TimingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimingController.swift; sourceTree = "<group>"; };
 		A7FDDE82E9A6C7904D3EC12B /* LoginItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginItem.swift; sourceTree = "<group>"; };
 		CAFC5AFEE3B2903D7003977B /* BrowserTextSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserTextSize.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				274E3CB2FFA2C27AF1D5C200 /* EyeCare.swift */,
 				A7FDDE82E9A6C7904D3EC12B /* LoginItem.swift */,
 				5790EFB28C078128041656C0 /* ReadingSize.swift */,
+				98C839C087BD7347B5176AFD /* ReadingSizeEditor.swift */,
 				5ECF4F0DA1558BAD3B919F49 /* ReadingSizeMenu.swift */,
 				291BCCEA1FA1971BF68A0A86 /* SettingsWindow.swift */,
 				1A66DBD4885710CDF5C830C5 /* SystemTextSize.swift */,
@@ -236,6 +239,7 @@
 				32151EFEA9DDD2CCEEA7A5D8 /* EyeCare.swift in Sources */,
 				13B7063D63EA8FA87D4DE6BE /* LoginItem.swift in Sources */,
 				713898F6922CED269516831A /* ReadingSize.swift in Sources */,
+				AA50434B684E1B9DAF18214B /* ReadingSizeEditor.swift in Sources */,
 				4E548F8BD2FF0F1BC46C913C /* ReadingSizeMenu.swift in Sources */,
 				21A500C6F0658A8F8D280198 /* SettingsWindow.swift in Sources */,
 				33F0F45EA04C698F9ACEBCEC /* SystemTextSize.swift in Sources */,

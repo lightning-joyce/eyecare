@@ -59,11 +59,14 @@ enum SystemTextSize {
 
     private static func setSlider(_ slider: AXUIElement, to target: Int) async -> Bool {
         let attributeName = kAXValueAttribute as CFString
+        if let minimum = (attribute(slider, kAXMinValueAttribute) as? NSNumber)?.intValue,
+           let maximum = (attribute(slider, kAXMaxValueAttribute) as? NSNumber)?.intValue,
+           target < minimum || target > maximum { return false }
         if (attribute(slider, kAXValueAttribute) as? NSNumber)?.intValue == target { return true }
         if AXUIElementSetAttributeValue(slider, attributeName, NSNumber(value: target)) == .success {
             try? await Task.sleep(for: .milliseconds(125))
         }
-        for _ in 0..<12 {
+        for _ in ReadingSize.systemLevels {
             guard let current = (attribute(slider, kAXValueAttribute) as? NSNumber)?.intValue else { return false }
             if current == target { return true }
             let action = current < target ? kAXIncrementAction : kAXDecrementAction

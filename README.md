@@ -44,9 +44,9 @@ xcodebuild -project EyeCare.xcodeproj -scheme EyeCare -destination 'platform=mac
 
 ## Text size
 
-Choose **Text Size** in the EyeCare menu and select **Standard**, **Large**, or **Extra Large**.
+Choose **Text Size…** in the EyeCare menu and drag the slider to set the Finder and file dialog font size from 10 to 32 pt in one-point increments. The panel shows the corresponding macOS reading level and browser font size as you drag. Select **Apply** to save and sync the displayed sizes. macOS apps can display the same reading level at different point sizes.
 
-- On macOS 14 or newer, EyeCare sets the preferred reading size in Accessibility settings. On first use, allow EyeCare under **Privacy & Security → Accessibility**, then choose a size again. macOS applies this size to supported apps and interface elements that follow the preferred reading size.
+- On macOS 14 or newer, EyeCare sets the preferred reading size in Accessibility settings. On first use, allow EyeCare under **Privacy & Security → Accessibility**, then apply the size again. macOS applies this size to supported apps and interface elements that follow the preferred reading size.
 - EyeCare also updates the default file text size in Finder and standard macOS Open and Save dialogs. Existing windows may need to be reopened, and Finder or the app that owns a dialog may need to be relaunched. Folder-specific views retain their own settings.
 - Chrome, Edge, and Brave use their own default web font size. EyeCare changes it for local profiles after the browser quits normally. If a browser is open, the change is queued and will be picked up the next time the browser starts. This setting applies to web content where the page respects it.
 
