@@ -35,6 +35,8 @@ targets:
     sources:
       - EyeCare/BreakSchedule.swift
       - EyeCare/WorkTimer.swift
+      - EyeCare/ReadingSize.swift
+      - EyeCare/BrowserTextSize.swift
       - EyeCareTests
     settings:
       base:

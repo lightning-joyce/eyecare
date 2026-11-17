@@ -24,6 +24,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     private let timing = TimingController()
     private let settings = SettingsWindow()
     private let loginItem = LoginItem()
+    private let readingSize = ReadingSizeMenu()
     private let updates = SPUStandardUpdaterController(
         startingUpdater: false, updaterDelegate: nil, userDriverDelegate: nil
     )
@@ -59,6 +60,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         menu.addItem(longBreakItem)
         menu.addItem(readingModeItem)
         menu.addItem(.separator())
+        menu.addItem(readingSize.makeItem())
         menu.addItem(menuItem("menu.settings", action: #selector(openSettings), key: ","))
         updateItem.target = updates
         menu.addItem(updateItem)

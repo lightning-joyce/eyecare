@@ -12,21 +12,29 @@
 		22EC9C103AAEA1C1E7BFEC7F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 711E449A178D0AB00936E487 /* Localizable.strings */; };
 		26CD36AA04614F658F1C58FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9DA2DAF07E090CA038C742F /* Assets.xcassets */; };
 		32151EFEA9DDD2CCEEA7A5D8 /* EyeCare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274E3CB2FFA2C27AF1D5C200 /* EyeCare.swift */; };
+		33F0F45EA04C698F9ACEBCEC /* SystemTextSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A66DBD4885710CDF5C830C5 /* SystemTextSize.swift */; };
 		3B0BF3FAEF7E854C8DE53039 /* BreakSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918B08013345B965ECC12B55 /* BreakSchedule.swift */; };
 		42B030B10998D0535B54C315 /* TimingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F51953C695259CDAAB8BF37 /* TimingController.swift */; };
+		4E548F8BD2FF0F1BC46C913C /* ReadingSizeMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECF4F0DA1558BAD3B919F49 /* ReadingSizeMenu.swift */; };
 		55835CF24850E8B369F73405 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 746E894A998E4D3D0ACD43D2 /* InfoPlist.strings */; };
 		6AFE6FCC2DB42D1D68551679 /* BreakPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03392EDA4338393FEDF3A906 /* BreakPreferences.swift */; };
 		6FEF021DD7BC64FAF30C8A05 /* WorkTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340BEC133CDA33624D13CD09 /* WorkTimer.swift */; };
+		713898F6922CED269516831A /* ReadingSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5790EFB28C078128041656C0 /* ReadingSize.swift */; };
+		73583F59508279775491368D /* ReadingSizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD78C7AD3127C203820D7E93 /* ReadingSizeTests.swift */; };
 		776AD0AC395FED38BC291672 /* BreakOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0DCCBB1AF51FD2D0ADB6DB /* BreakOverlay.swift */; };
 		7F879417CA0E1100A0234E72 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = F391040C9222B0E902D8946B /* Sparkle */; };
+		948DA99C98E492A825791690 /* BrowserTextSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFC5AFEE3B2903D7003977B /* BrowserTextSize.swift */; };
 		95F16A176F0592104817BC5D /* BreakSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918B08013345B965ECC12B55 /* BreakSchedule.swift */; };
+		AA60BB7015576553F71236DB /* BrowserTextSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFC5AFEE3B2903D7003977B /* BrowserTextSize.swift */; };
 		C30124730106856AEE408098 /* BreakScheduleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690C0892AFC087190E8C0FC1 /* BreakScheduleTests.swift */; };
+		CE37EC4ED4682D950DAB5526 /* ReadingSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5790EFB28C078128041656C0 /* ReadingSize.swift */; };
 		F7DC00752A28155D71AE1579 /* WorkTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229C5857C5B2791C21020B16 /* WorkTimerTests.swift */; };
 		F873279CC4A7414CEE7B8918 /* WorkTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340BEC133CDA33624D13CD09 /* WorkTimer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		03392EDA4338393FEDF3A906 /* BreakPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakPreferences.swift; sourceTree = "<group>"; };
+		1A66DBD4885710CDF5C830C5 /* SystemTextSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemTextSize.swift; sourceTree = "<group>"; };
 		1DF5A1238BE112CAF9AD881D /* EyeCare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EyeCare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		229C5857C5B2791C21020B16 /* WorkTimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkTimerTests.swift; sourceTree = "<group>"; };
 		274E3CB2FFA2C27AF1D5C200 /* EyeCare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeCare.swift; sourceTree = "<group>"; };
@@ -34,12 +42,16 @@
 		2E0DCCBB1AF51FD2D0ADB6DB /* BreakOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakOverlay.swift; sourceTree = "<group>"; };
 		340BEC133CDA33624D13CD09 /* WorkTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkTimer.swift; sourceTree = "<group>"; };
 		3AAEEBAF03A8C5855AAAC4C0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		5790EFB28C078128041656C0 /* ReadingSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingSize.swift; sourceTree = "<group>"; };
+		5ECF4F0DA1558BAD3B919F49 /* ReadingSizeMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingSizeMenu.swift; sourceTree = "<group>"; };
 		668971A254514001BE0F6FC1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		690C0892AFC087190E8C0FC1 /* BreakScheduleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakScheduleTests.swift; sourceTree = "<group>"; };
 		918B08013345B965ECC12B55 /* BreakSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakSchedule.swift; sourceTree = "<group>"; };
 		981EEB7942B9979074FB1593 /* EyeCareTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EyeCareTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F51953C695259CDAAB8BF37 /* TimingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimingController.swift; sourceTree = "<group>"; };
 		A7FDDE82E9A6C7904D3EC12B /* LoginItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginItem.swift; sourceTree = "<group>"; };
+		CAFC5AFEE3B2903D7003977B /* BrowserTextSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserTextSize.swift; sourceTree = "<group>"; };
+		CD78C7AD3127C203820D7E93 /* ReadingSizeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingSizeTests.swift; sourceTree = "<group>"; };
 		DED9EDDEA7B803F701F48AD2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E80431EDEDEE65DD2FBF1631 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E9DA2DAF07E090CA038C742F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -73,9 +85,13 @@
 				2E0DCCBB1AF51FD2D0ADB6DB /* BreakOverlay.swift */,
 				03392EDA4338393FEDF3A906 /* BreakPreferences.swift */,
 				918B08013345B965ECC12B55 /* BreakSchedule.swift */,
+				CAFC5AFEE3B2903D7003977B /* BrowserTextSize.swift */,
 				274E3CB2FFA2C27AF1D5C200 /* EyeCare.swift */,
 				A7FDDE82E9A6C7904D3EC12B /* LoginItem.swift */,
+				5790EFB28C078128041656C0 /* ReadingSize.swift */,
+				5ECF4F0DA1558BAD3B919F49 /* ReadingSizeMenu.swift */,
 				291BCCEA1FA1971BF68A0A86 /* SettingsWindow.swift */,
+				1A66DBD4885710CDF5C830C5 /* SystemTextSize.swift */,
 				9F51953C695259CDAAB8BF37 /* TimingController.swift */,
 				340BEC133CDA33624D13CD09 /* WorkTimer.swift */,
 				746E894A998E4D3D0ACD43D2 /* InfoPlist.strings */,
@@ -97,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				690C0892AFC087190E8C0FC1 /* BreakScheduleTests.swift */,
+				CD78C7AD3127C203820D7E93 /* ReadingSizeTests.swift */,
 				229C5857C5B2791C21020B16 /* WorkTimerTests.swift */,
 			);
 			path = EyeCareTests;
@@ -200,6 +217,9 @@
 			files = (
 				3B0BF3FAEF7E854C8DE53039 /* BreakSchedule.swift in Sources */,
 				C30124730106856AEE408098 /* BreakScheduleTests.swift in Sources */,
+				948DA99C98E492A825791690 /* BrowserTextSize.swift in Sources */,
+				CE37EC4ED4682D950DAB5526 /* ReadingSize.swift in Sources */,
+				73583F59508279775491368D /* ReadingSizeTests.swift in Sources */,
 				6FEF021DD7BC64FAF30C8A05 /* WorkTimer.swift in Sources */,
 				F7DC00752A28155D71AE1579 /* WorkTimerTests.swift in Sources */,
 			);
@@ -212,9 +232,13 @@
 				776AD0AC395FED38BC291672 /* BreakOverlay.swift in Sources */,
 				6AFE6FCC2DB42D1D68551679 /* BreakPreferences.swift in Sources */,
 				95F16A176F0592104817BC5D /* BreakSchedule.swift in Sources */,
+				AA60BB7015576553F71236DB /* BrowserTextSize.swift in Sources */,
 				32151EFEA9DDD2CCEEA7A5D8 /* EyeCare.swift in Sources */,
 				13B7063D63EA8FA87D4DE6BE /* LoginItem.swift in Sources */,
+				713898F6922CED269516831A /* ReadingSize.swift in Sources */,
+				4E548F8BD2FF0F1BC46C913C /* ReadingSizeMenu.swift in Sources */,
 				21A500C6F0658A8F8D280198 /* SettingsWindow.swift in Sources */,
+				33F0F45EA04C698F9ACEBCEC /* SystemTextSize.swift in Sources */,
 				42B030B10998D0535B54C315 /* TimingController.swift in Sources */,
 				F873279CC4A7414CEE7B8918 /* WorkTimer.swift in Sources */,
 			);

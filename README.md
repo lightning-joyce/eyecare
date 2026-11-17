@@ -42,6 +42,14 @@ xcodebuild -project EyeCare.xcodeproj -scheme EyeCare -destination 'platform=mac
 - The overlay covers each connected display during a break. Click **End Break Early** or press **Esc** if you need to get back to work immediately. The next reminder follows the usual schedule.
 - Launch at login is enabled on first run through Service Management. Later choices in the app or in System Settings are respected.
 
+## Text size
+
+Choose **Text Size** in the EyeCare menu and select **Standard**, **Large**, or **Extra Large**.
+
+- On macOS 14 or newer, EyeCare sets the preferred reading size in Accessibility settings. On first use, allow EyeCare under **Privacy & Security → Accessibility**, then choose a size again. macOS applies this size to supported apps and interface elements that follow the preferred reading size.
+- EyeCare also updates the default file text size in Finder and standard macOS Open and Save dialogs. Existing windows may need to be reopened, and Finder or the app that owns a dialog may need to be relaunched. Folder-specific views retain their own settings.
+- Chrome, Edge, and Brave use their own default web font size. EyeCare changes it for local profiles after the browser quits normally. If a browser is open, the change is queued and will be picked up the next time the browser starts. This setting applies to web content where the page respects it.
+
 ## Automatic updates
 
 Sparkle checks for updates in the background and downloads eligible updates to install when EyeCare quits. The menu bar also provides a manual check. The app verifies signed feeds and archives using its embedded EdDSA public key.
