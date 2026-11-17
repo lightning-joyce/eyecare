@@ -6,11 +6,11 @@ EyeCare is a native macOS menu bar app for taking regular screen breaks. It supp
 
 ## Download
 
-[Download EyeCare 1.2.0 for macOS](https://github.com/lightning-joyce/eyecare/releases/download/v1.2.0/EyeCare-1.2.0-4.zip). Unzip the download, move `EyeCare.app` to Applications, and open it. The ZIP contains build 4 for both Apple silicon and Intel Macs. The app is signed with the PURE INSIGHT TECHNOLOGY LTD Developer ID and notarized by Apple.
+[Download EyeCare 1.2.1 for macOS](https://github.com/lightning-joyce/eyecare/releases/download/v1.2.1/EyeCare-1.2.1-5.zip). Unzip the download, move `EyeCare.app` to Applications, and open it. The ZIP contains build 5 for both Apple silicon and Intel Macs. The app is signed with the PURE INSIGHT TECHNOLOGY LTD Developer ID and notarized by Apple.
 
-[Browse GitHub Releases](https://github.com/lightning-joyce/eyecare/releases) · [Download from gltlab.net](https://eyecare-updates.gltlab.net/EyeCare-1.2.0-4.zip)
+[Browse GitHub Releases](https://github.com/lightning-joyce/eyecare/releases) · [Download from gltlab.net](https://eyecare-updates.gltlab.net/EyeCare-1.2.1-5.zip)
 
-ZIP SHA-256 `24c3fe0a402167983fdd2cc1dabaf6b2ed01c100455d11d39846644148145349`
+ZIP SHA-256 `4e4693b052fe914990f9980810777b2cfa06b3260a0e63a6c956cd0bedbbe680`
 
 ## Screenshots
 
@@ -61,7 +61,7 @@ The [production appcast](https://eyecare-updates.gltlab.net/appcast.xml) adverti
 Run the release command from the repository root with the intended version and build number.
 
 ```sh
-./scripts/release.sh 1.2.1 5
+./scripts/release.sh 1.2.2 6
 ```
 
 Use an `x.y.z` version and a positive integer build number greater than the one in the live appcast. The script sets both values on the Xcode command line. It archives a universal Release build, exports it with Xcode's automatic Developer ID signing, submits it to Apple, and staples the notarization ticket. It then signs the Sparkle appcast and ZIP, deploys them to Cloudflare, and downloads both over HTTPS to verify their contents and signatures.
@@ -75,7 +75,7 @@ The release command requires the following maintainer credentials and tools.
 Use `--dry-run` to prepare signed assets and run Wrangler's deployment checks.
 
 ```sh
-./scripts/release.sh 1.2.1 5 --dry-run
+./scripts/release.sh 1.2.2 6 --dry-run
 ```
 
 This submits the build to Apple for notarization and leaves the production appcast as it was. Both modes retain the archive, notarization logs, and release assets in the printed `.build/release-*` directory. Keep a copy of each published ZIP for rollback or support.
